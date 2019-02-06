@@ -9,14 +9,23 @@ import { PROMOTIONS } from '../shared/promotions';
 export class PromotionService {
 
   getPromottion() : Promise<Promotion[]> {
-    return Promise.resolve(PROMOTIONS);
+    return new Promise(resolve => {
+      //Simulate server latency with 2sec delay
+      setTimeout(() => resolve(PROMOTIONS), 2000);
+    });
   }
 
    getPromotion(id : string ) : Promise<Promotion> {
-     return Promise.resolve(PROMOTIONS.filter((promo) => (promo.id === id))[0]);
+     return new Promise(resolve => {
+      //Simulate server latency with 2sec delay
+      setTimeout(() => resolve(PROMOTIONS.filter((promo) => (promo.id === id))[0]), 2000);
+    });
    }
    getFeaturedPromotion() : Promise<Promotion> {
-    return Promise.resolve(PROMOTIONS.filter((promotion) => promotion.featured)[0]);
+    return new Promise(resolve => {
+      //Simulate server latency with 2sec delay
+      setTimeout(() => resolve(PROMOTIONS.filter((promotion) => promotion.featured)[0]), 2000);
+    });
   }
 
 
